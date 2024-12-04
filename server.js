@@ -13,7 +13,7 @@ app.use(cors());
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DB_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
@@ -22,12 +22,12 @@ const userRoutes = require("./routes/userRoutes");
 const clientRoutes = require("./routes/clientRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 
-// Use Routes
+// Use Routes with API Prefix
 app.use("/api/users", userRoutes);
 app.use("/api/clients", clientRoutes);
 app.use("/api/projects", projectRoutes);
 
-// Basic Route
+// Basic Root Route
 app.get("/", (req, res) => {
   res.send("Server is running!");
 });
