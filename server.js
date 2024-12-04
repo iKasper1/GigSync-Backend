@@ -18,9 +18,9 @@ mongoose
 .catch((err) => console.error("Error connecting to MongoDB:", err));
 
 // Import Routes
-const authRoutes = require("./routes/auth.routes");
-const clientRoutes = require("./routes/clients.routes");
-const indexRoutes = require("./routes/index.routes");
+const authRoutes = require("./routes/authRoutes");
+const clientRoutes = require("./routes/clientRoutes");
+const projectRoutes = require("./routes/projectRoutes");
 
 // Use Routes with API Prefix
 app.use("/", indexRoutes); 
